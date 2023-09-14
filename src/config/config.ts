@@ -1,0 +1,56 @@
+require("dotenv").config()
+const {
+    HUBSPOT_ACCESS_TOKEN,
+    DB_HOST,
+    DB_USER,
+    DB_PASSWORD,
+    DB_NAME,
+    DB_TABLE_CONTACTS,
+    DB_TABLE_CONTACTS_PAGINATION,
+    DB_TABLE_BROKER_TEAMS,
+    DB_TABLE_USERS_PRIMARY_TEAM,
+    DB_TABLE_USERS_SECONDARY_TEAM,
+    DB_TABLE_OWNERS,
+    DEV_PORT,
+    PROD_PORT,
+    STATUS,
+} = process.env
+
+if (
+    !HUBSPOT_ACCESS_TOKEN ||
+    !DB_HOST ||
+    !DB_USER ||
+    !DB_PASSWORD ||
+    !DB_NAME ||
+    !DB_TABLE_CONTACTS ||
+    !DB_TABLE_CONTACTS_PAGINATION ||
+    !DB_TABLE_BROKER_TEAMS ||
+    !DB_TABLE_USERS_PRIMARY_TEAM ||
+    !DB_TABLE_USERS_SECONDARY_TEAM ||
+    !DB_TABLE_OWNERS
+) {
+    throw new Error("Essential environment variables are missing")
+}
+
+export const CONFIG = {
+    HUBSPOT_ACCESS_TOKEN,
+    DB: {
+        HOST: DB_HOST,
+        USER: DB_USER,
+        PASSWORD: DB_PASSWORD,
+        NAME: DB_NAME,
+        TABLES: {
+            CONTACTS: DB_TABLE_CONTACTS,
+            CONTACTS_PAGINATION: DB_TABLE_CONTACTS_PAGINATION,
+            BROKER_TEAMS: DB_TABLE_BROKER_TEAMS,
+            USERS_PRIMARY_TEAM: DB_TABLE_USERS_PRIMARY_TEAM,
+            USERS_SECONDARY_TEAM: DB_TABLE_USERS_SECONDARY_TEAM,
+            OWNERS: DB_TABLE_OWNERS,
+        },
+    },
+    STATUS,
+    PORT: {
+        DEVELOPMENT: DEV_PORT,
+        PRODUCTION: PROD_PORT,
+    },
+}
