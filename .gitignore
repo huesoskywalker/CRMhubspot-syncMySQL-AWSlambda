@@ -1,0 +1,13 @@
+
+# dependencies
+/node_modules
+
+
+
+.env
+
+#Versioning
+yarn.lock
+
+#Prettier formatting
+.prettierrc
