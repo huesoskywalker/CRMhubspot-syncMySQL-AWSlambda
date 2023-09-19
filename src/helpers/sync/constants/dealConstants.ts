@@ -1,3 +1,4 @@
+import { CONFIG } from "../../../config/config"
 import { ITableInfo } from "../../../types/database"
 
 export const dealLimit: number = 100
@@ -13,22 +14,11 @@ export const dealProperties: string[] = [
 ]
 export const dealAssociations: string[] = ["contacts"]
 export const dealTable: ITableInfo = {
-    name: "hs_deals",
-    columns: [
-        "uuid_deal",
-        "deal_name",
-        "deal_stage",
-        "amount",
-        "deal_currency_code",
-        "uuid_user",
-        "uuid_owner",
-        "create_date",
-        "close_date",
-        "last_modified_date",
-    ],
+    name: CONFIG.DB.TABLES.DEALS,
+    columns: JSON.parse(CONFIG.DB.COLUMNS.DEALS),
 }
 
 export const dealPaginationTable: ITableInfo = {
-    name: "hs_deals_pagination",
-    columns: ["next_after", "last_sync_date"],
+    name: CONFIG.DB.TABLES.DEALS_PAGINATION,
+    columns: JSON.parse(CONFIG.DB.COLUMNS.DEALS_PAGINATION),
 }

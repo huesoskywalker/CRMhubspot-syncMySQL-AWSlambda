@@ -12,25 +12,15 @@ export const contactProperties: string[] = [
 ]
 export const contactTable: ITableInfo = {
     name: CONFIG.DB.TABLES.CONTACTS,
-    columns: [
-        "uuid",
-        "firstname",
-        "lastname",
-        "lifecycle_stage",
-        "email",
-        "phone",
-        "country",
-        "create_date",
-        "last_modified_date",
-    ],
+    columns: JSON.parse(CONFIG.DB.COLUMNS.CONTACTS),
 }
 
 export const contactPaginationTable: ITableInfo = {
     name: CONFIG.DB.TABLES.CONTACTS_PAGINATION,
-    columns: ["next_after", "last_sync_date"],
+    columns: JSON.parse(CONFIG.DB.COLUMNS.CONTACTS_PROPERTIES),
 }
 
 export const contactPropertiesTable: ITableInfo = {
-    name: "hs_contacts_properties",
-    columns: ["name", "label", "updated_at"],
+    name: CONFIG.DB.TABLES.CONTACTS_PROPERTIES,
+    columns: JSON.parse(CONFIG.DB.COLUMNS.CONTACTS_PROPERTIES),
 }
