@@ -29,3 +29,8 @@ export const contactPaginationTable: ITableInfo = {
     name: CONFIG.DB.TABLES.CONTACTS_PAGINATION,
     columns: ["next_after", "last_sync_date"],
 }
+
+export const contactPropertiesTable: ITableInfo = {
+    name: "hs_contacts_properties",
+    columns: ["name", "label", "updated_at"],
+}
