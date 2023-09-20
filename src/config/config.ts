@@ -22,6 +22,7 @@ const {
     DB_TABLE_USERS_SECONDARY_TEAM,
     DB_COLUMNS_USERS_SECONDARY_TEAM,
     DB_TABLE_OWNERS,
+    DB_COLUMNS_OWNERS,
 } = process.env
 
 if (!HUBSPOT_ACCESS_TOKEN || !DB_HOST || !DB_USER || !DB_PASSWORD || !DB_NAME) {
@@ -31,12 +32,12 @@ if (
     !DB_TABLE_CONTACTS ||
     !DB_TABLE_CONTACTS_PAGINATION ||
     !DB_TABLE_CONTACTS_PROPERTIES ||
+    !DB_TABLE_DEALS ||
+    !DB_TABLE_DEALS_PAGINATION ||
     !DB_TABLE_BROKER_TEAMS ||
     !DB_TABLE_USERS_PRIMARY_TEAM ||
     !DB_TABLE_USERS_SECONDARY_TEAM ||
-    !DB_TABLE_OWNERS ||
-    !DB_TABLE_DEALS ||
-    !DB_TABLE_DEALS_PAGINATION
+    !DB_TABLE_OWNERS
 ) {
     throw new Error(`Essential MySQL table environment variables are missing`)
 }
@@ -48,7 +49,8 @@ if (
     !DB_COLUMNS_DEALS_PAGINATION ||
     !DB_COLUMNS_BROKER_TEAMS ||
     !DB_COLUMNS_USERS_PRIMARY_TEAM ||
-    !DB_COLUMNS_USERS_SECONDARY_TEAM
+    !DB_COLUMNS_USERS_SECONDARY_TEAM ||
+    !DB_COLUMNS_OWNERS
 ) {
     throw new Error(`Essential MySQL columns environment variables are missing`)
 }
@@ -80,6 +82,7 @@ export const CONFIG = {
             BROKERS_TEAMS: DB_COLUMNS_BROKER_TEAMS,
             USERS_PRIMARY_TEAM: DB_COLUMNS_USERS_PRIMARY_TEAM,
             USERS_SECONDARY_TEAM: DB_COLUMNS_USERS_SECONDARY_TEAM,
+            OWNERS: DB_COLUMNS_OWNERS,
         },
     },
 }
